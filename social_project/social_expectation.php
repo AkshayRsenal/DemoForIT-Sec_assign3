@@ -22,28 +22,63 @@ if(isset($_POST['reg_name'])){
 	}	
 }
 
+error_reporting(0);
 if(empty($error)){
-	$link=mysqli_connect('localhost','root','','social_db') or die('Connection Error:' . mysqli_connect_error());	
+	// $link=mysqli_connect('localhost','root','','social_db') or die('Connection Error:' . mysqli_connect_error());	
+
+class dbc {
+	public $dbserver = 'localhost';
+    public $dbusername = 'root';
+    public $dbpassword = '';
+    public $dbname = 'social_db';
+
+    function openDb() {    
+        try {
+            $db = new PDO('mysql:host=' . $this->dbserver . ';dbname=' . $this->dbname . ';charset=utf8', '' . $this->dbusername . '', '' . $this->dbpassword . '');
+        } catch (PDOException $e) {
+            die("error, please try again");
+        }        
+        return $db;
+    }
+
 	// $link=mysqli_connect('localhost','root','') or die();
 	// $db=mysqli_select_db('social_db',$link) or die();
 
-	$query="";
+	/*$query="";
 	$query="SELECT name, gender, reg_no FROM register WHERE reg_no ='".trim($reg_no)."'";
 	$logResult=mysqli_query($link,$query) or die("Error: ".mysqli_error()."Enter valid Registration Number!!");
-	
+	*/
 
-	
+    function getAllData($reg_no) {
 
-	if(count($logResult)>0){
-		$tupples=mysqli_fetch_object($logResult);
-			 // $tupples->name."</br>";
-			 // $tupples->gender;
-			  // echo $tupples->reg_no;
-		// print_r($_SESSION);
+$foobar = new dbc;  // correct
+	$stmt = $foobar->openDb()->prepare("SELECT name, gender, reg_no FROM register WHERE reg_no = ? ");
+$stmt->bindValue(1, trim($reg_no), PDO::PARAM_STR);
+$stmt->execute();
+$logResult= $stmt->fetchAll(PDO::FETCH_ASSOC);
+//fetching result would go here, but will be covered later
+return $logResult;
+}
+}
+
+$result_data = 'dbc'::getAllData($reg_no);
+
+
+foreach ($result_data as $key=> $row) {
+          $db_regno = $row['reg_no'];
+
+    }
+
+	// if(count($result_data)>0){
+	// 	$tupples=mysqli_fetch_object($result_data);
+	// 		 // $tupples->name."</br>";
+	// 		 // $tupples->gender;
+	// 		  // echo $tupples->reg_no;
+	// 	// print_r($_SESSION);
 		
-	}
-}	
-$db_regno=$tupples->reg_no;
+	// }
+	
+// $db_regno=$result_data['reg_no'];;
 
 // require_once("soc_tem.php");
 
@@ -58,19 +93,22 @@ if(!isset($_SESSION['first_run'])){
 
 	}
 
-	/*else{
+	else{
 
 		session_destroy();
 		echo "invalid login</br>invalid login</br>invalid login</br>";
 		// exit();
-		header("Location:social_jodi.php?login=Invalid login");
-	}*/
+		header("Location:social_jodi.php?login=Invalid login0");
+	}
 
 
 	// }
 
 }
 
+
+
+}
 		// exit();
 
 			// while ($tupples=mysqli_fetch_object($logResult)){
@@ -177,7 +215,7 @@ if(!isset($_SESSION['first_run'])){
 							}
 							/*else
 							{
-								 header("Location:social_jodi.php?login=Invalid login");
+								 header("Location:social_jodi.php?login=Invalid login1");
 							}*/
 
 							echo "<input type='hidden' name='gender_check' id='masculine' value='".$_SESSION['Gender']."'/>";

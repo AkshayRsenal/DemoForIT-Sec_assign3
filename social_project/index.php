@@ -43,7 +43,7 @@ label{font-size:20px;}
 						<div class="form-group" style="text-align:right;">	
 							<label for="reg_no" class="col-sm-4" style="color:FFF;">Enter Reg No<span class="star">*</span>:</label>
 							<div class="col-sm-8">
-								<input type="text" maxlength="12" minlength="8" name="reg_name" class="form-control" id="reg_no" placeholder="Enter Reg No" />
+								<input type="text" maxlength="8" minlength="8" name="reg_name" class="form-control" id="reg_no" placeholder="Enter Reg No" />
 								<input type="hidden" name="registration" id="registration" value="SJ">
 							</div>
 						</div>
@@ -76,10 +76,10 @@ label{font-size:20px;}
 								if(reg_no == ""){
 									alert("Kindly Enter Registration Number!!!");
 									return false;
-								}/*else if (reg_no.length != 8 || reg_no.match(/[_\W]/) || reg_no.match(/^SJ[0-9]/g) == null ){
+								}else if (reg_no.length != 8 || reg_no.match(/[_\W]/) || reg_no.match(/^SJ[0-9]/g) == null ){
 									alert("Kindly Enter Valid Registration Number!!!");
 									return false;
-								}*/else{
+								}else{
 									document.getElementById("frmLogin").submit();
 								}
 								
@@ -112,7 +112,7 @@ label{font-size:20px;}
 	<!--Footer Property-->
 	<div id="footer" class="row">
 		<div class=" col-xs-12" align="right" >
-			<p style="text-decoration:none; font-size:18px;">Copyright &#169; <?php echo date("Y");?> . all rights reserved.</p>
+			<p style="text-decoration:none; font-size:18px;">Copyright &#169; <?php echo date("Y");?> Social Jodi. all right reserved.</p>
 			<div class="clear"></div>
 		</div>
 	</div>

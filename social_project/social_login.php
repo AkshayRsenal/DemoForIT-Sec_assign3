@@ -43,7 +43,7 @@ label{font-size:20px;}
 						<div class="form-group" style="text-align:right;">	
 							<label for="reg_no" class="col-sm-4" style="color:FFF;">Enter Reg No<span class="star">*</span>:</label>
 							<div class="col-sm-8">
-								<input type="text" maxlength="12" minlength="8" name="reg_name" class="form-control" id="reg_no" placeholder="Enter Reg No" />
+								<input type="text" maxlength="10" minlength="8" name="reg_name" class="form-control" id="reg_no" placeholder="Enter Reg No" />
 								<input type="hidden" name="registration" id="registration" value="SJ">
 							</div>
 						</div>
