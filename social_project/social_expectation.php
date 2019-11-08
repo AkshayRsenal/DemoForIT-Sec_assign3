@@ -28,8 +28,8 @@ if(empty($error)){
 	// $db=mysqli_select_db('social_db',$link) or die();
 
 	$query="";
-	// $query="SELECT name, gender, reg_no FROM register WHERE reg_no ='".trim($reg_no)."'";
-	// $logResult=mysqli_query($link,$query) or die("Error: ".mysqli_error()."Enter valid Registration Number!!");
+	$query="SELECT name, gender, reg_no FROM register WHERE reg_no ='".trim($reg_no)."'";
+	$logResult=mysqli_query($link,$query) or die("Error: ".mysqli_error()."Enter valid Registration Number!!");
 	
 
 	
@@ -58,13 +58,13 @@ if(!isset($_SESSION['first_run'])){
 
 	}
 
-	else{
+	/*else{
 
 		session_destroy();
 		echo "invalid login</br>invalid login</br>invalid login</br>";
 		// exit();
 		header("Location:social_jodi.php?login=Invalid login");
-	}
+	}*/
 
 
 	// }
@@ -147,7 +147,7 @@ if(!isset($_SESSION['first_run'])){
 			
 			
 			<div  class="col-xs-6"  style="border:5px dotted #C296B6; border-radius:30px; margin-top:150px; margin-bottom:150px;">
-				<h1 style="text-align:center; font-size:58px; color:#FF6EB0;">Your Expectation</h1>
+				<h1 style="text-align:center; font-size:58px; color:gold;">Your Expectation</h1>
 				<!--User Details-->
 				<div id="section">
 					<section>
@@ -175,10 +175,10 @@ if(!isset($_SESSION['first_run'])){
 									// header("Location:social_jodi.php?login=Invalid login");
 							}
 							}
-							else
+							/*else
 							{
 								 header("Location:social_jodi.php?login=Invalid login");
-							}
+							}*/
 
 							echo "<input type='hidden' name='gender_check' id='masculine' value='".$_SESSION['Gender']."'/>";
 								// echo "<input type='hidden' name='gender_check' id='masculine' value='".$userGender."'/>";
@@ -203,7 +203,7 @@ if(!isset($_SESSION['first_run'])){
 							<div class="form-group" style="text-align:right;">	
 								<label for="age" class="col-sm-4" style="color:FFF;">Enter Age<span class="star">*</span>:</label>
 								<div class="col-sm-8">
-									<input type="number" min="18" max="100"  name="age"  class="form-control" id="age" placeholder="Enter Age"/>
+									<input type="number" min="18" max="100"  name="age"  class="form-control" id="age" placeholder="Enter Age of person you would like to find"/>
 								</div>
 							</div>
 
@@ -215,10 +215,10 @@ if(!isset($_SESSION['first_run'])){
 							</div>
 
 							<div class="form-group" style="text-align:right;">
-								<label for="salary" class="col-sm-4" style="color:FFF;">Annual Salary<span class="star">*</span>:</label>
+								<label for="salary" class="col-sm-4" style="color:FFF;">Distance from your location<span class="star">*</span>:</label>
 								<div class="col-sm-8">
 									<input type="hidden" name="search" id="search" value="search" />
-									<input type="number" name="salary"   class="form-control" id="salary" placeholder="Enter Salary (in INR p.a.)"/>
+									<input type="number" name="salary"   class="form-control" id="salary" placeholder="Enter Distance in kilometers"/>
 								</div>
 							</div>
 							
@@ -249,7 +249,7 @@ if(!isset($_SESSION['first_run'])){
 								}
 								
 								if(salary!="" && isNaN(salary)){
-									alert("Please Enter your salary");
+									alert("Please Enter distance for searching");
 									return false;
 								}							
 								
@@ -284,7 +284,7 @@ if(!isset($_SESSION['first_run'])){
 	<!--Footer Property-->
 	<div id="footer" class="row">
 		<div class=" col-xs-12" align="right" >
-			<p style="text-decoration:none; font-size:18px;">Copyright &#169; <?php echo date("Y");?> Social Jodi. all right reserved.</p>
+			<p style="text-decoration:none; font-size:18px;">Copyright &#169; <?php echo date("Y");?>. all rights reserved.</p>
 			<div class="clear"></div>
 		</div>
 	</div>

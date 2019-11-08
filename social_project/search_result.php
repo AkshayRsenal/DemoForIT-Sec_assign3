@@ -61,8 +61,8 @@ label{font-size:20px;}
 					} */
 
 					
-					$link=mysqli_connect('localhost','root','') or die("unsucessful to connection");
-					$db=mysqli_select_db('social_db',$link) or die("unsucessful to select database");
+					$link=mysqli_connect('localhost','root','','social_db') or die('Connection Error:' . mysqli_connect_error());
+					// $db=mysqli_select_db('social_db',$link) or die("unsucessful to select database");
 					//$query='SELECT * FROM register WHERE ORDER BY '.$age;
 					
 					$whereclause	= "WHERE 1";
@@ -96,7 +96,7 @@ label{font-size:20px;}
 					<div style="overflow-y:auto;overflow-x:hidden;height:200px;">
 				<?php
 				if(empty($error)){
-					if(count($result)>0){
+					if($result){
 						while($list = mysqli_fetch_object($result)){
 				?>
 	
@@ -136,7 +136,7 @@ label{font-size:20px;}
 	<!--Footer Property-->
 	<div id="footer" class="row">
 		<div class=" col-xs-12" align="center" >
-			<p style="text-decoration:none; font-size:18px;">Copyright &#169; <?php echo date("Y");?> Social Jodi. all right reserved.</p>
+			<p style="text-decoration:none; font-size:18px;">Copyright &#169; <?php echo date("Y");?> . all rights reserved.</p>
 			<div class="clear"></div>
 		</div>
 	</div>
