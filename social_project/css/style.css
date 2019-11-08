@@ -1,0 +1,52 @@
+body{background-color:	#DEE7EF; background-image:url("../img/register.jpg");background-repeat:no-repeat;background-size:cover; }
+/* .for_margin:{margin-bottom:5000px;} */
+.form_log{background-color:#000000; opacity: 0.7;}
+h1{color:#2e6da4; text-align:center;}
+p{color:blue;text-decoration:underline;}
+#login{ margin-left:350px; padding:3px 10px 10px ; border-radius: 25px;}
+label { color:#FFFFFF; }
+
+
+/*Social_Jodi CSS*/
+#section{}
+/*body_property*/
+body{
+display:block;      
+}
+/*star_property*/
+#star{color:red;}
+
+ /*anchor tag for menu*/                             
+a{                             
+	color:#FFE1FF;
+	text-decoration:none;
+}
+a:hover{                                       
+	color:white;
+	text-decoration:underline;
+}
+.nav{
+	background-color:/*#FF9933; #6666CC8*/#6495ED;
+}
+
+
+
+
+/*footer_property*/
+#footer{                      
+	background-color:#333333;	
+	padding:40px;
+}
+#footer p{
+	text-align:center;
+	color:white;
+}
+
+/*for about page blog_property*/
+#blog{                        
+	color:#0000FF;
+	text-decoration:none;
+}
+#blog:hover{
+	text-decoration:underline;
+}
